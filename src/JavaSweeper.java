@@ -14,11 +14,11 @@ public class JavaSweeper extends JFrame {
     }
 
     private void initPanel() {
-        panel = new JPanel(){
+        panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics graphics) {
                 super.paintComponent(graphics);
-                graphics.drawLine(0, 0, 500, 300);
+                graphics.drawImage(getImage(), 0, 0, this);
             }
         };
         panel.setPreferredSize(new Dimension(500, 300));
@@ -32,5 +32,10 @@ public class JavaSweeper extends JFrame {
         setResizable(false);
         pack();
         setLocationRelativeTo(null);
+    }
+
+    private Image getImage() {
+        ImageIcon icon = new ImageIcon("resources/image/bomb.png");
+        return icon.getImage();
     }
 }
