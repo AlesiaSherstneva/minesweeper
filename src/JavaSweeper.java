@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class JavaSweeper extends JFrame{
+public class JavaSweeper extends JFrame {
     private JPanel panel;
 
     public static void main(String[] args) {
@@ -14,7 +14,13 @@ public class JavaSweeper extends JFrame{
     }
 
     private void initPanel() {
-        panel = new JPanel();
+        panel = new JPanel(){
+            @Override
+            protected void paintComponent(Graphics graphics) {
+                super.paintComponent(graphics);
+                graphics.drawLine(0, 0, 500, 300);
+            }
+        };
         panel.setPreferredSize(new Dimension(500, 300));
         add(panel);
     }
