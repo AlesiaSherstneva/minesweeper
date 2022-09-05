@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Locale;
+
+import sweeper.Box;
 
 public class JavaSweeper extends JFrame {
     private final int COLS = 15;
@@ -21,8 +24,10 @@ public class JavaSweeper extends JFrame {
             @Override
             protected void paintComponent(Graphics graphics) {
                 super.paintComponent(graphics);
-                graphics.drawImage(getImage("bomb"), 0, 0, this);
-                graphics.drawImage(getImage("num1"), IMAGE_SIZE, 0, this);
+                for (Box box : Box.values()) {
+                    graphics.drawImage(getImage(box.name().toLowerCase()),
+                            box.ordinal() * IMAGE_SIZE, 0, this);
+                }
             }
         };
         panel.setPreferredSize(new Dimension(
