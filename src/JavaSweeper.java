@@ -3,6 +3,7 @@ import java.awt.*;
 
 import sweeper.Box;
 import sweeper.Coordinates;
+import sweeper.Ranges;
 
 public class JavaSweeper extends JFrame {
     private final int COLS = 15;
@@ -15,6 +16,7 @@ public class JavaSweeper extends JFrame {
     }
 
     private JavaSweeper() {
+        Ranges.setSize(COLS, ROWS);
         setImages();
         initPanel();
         initFrame();
@@ -35,8 +37,8 @@ public class JavaSweeper extends JFrame {
             }
         };
         panel.setPreferredSize(new Dimension(
-                COLS * IMAGE_SIZE,
-                ROWS * IMAGE_SIZE));
+                Ranges.getSize().x * IMAGE_SIZE,
+                Ranges.getSize().y * IMAGE_SIZE));
         add(panel);
     }
 
