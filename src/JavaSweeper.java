@@ -6,8 +6,8 @@ import sweeper.Coordinates;
 import sweeper.Ranges;
 
 public class JavaSweeper extends JFrame {
-    private final int COLS = 15;
-    private final int ROWS = 1;
+    private final int COLS = 9;
+    private final int ROWS = 9;
     private final int IMAGE_SIZE = 50;
     private JPanel panel;
 
@@ -27,9 +27,8 @@ public class JavaSweeper extends JFrame {
             @Override
             protected void paintComponent(Graphics graphics) {
                 super.paintComponent(graphics);
-                for (Box box : Box.values()) {
-                    Coordinates coordinates = new Coordinates(box.ordinal(), 0);
-                    graphics.drawImage((Image) box.image,
+                for (Coordinates coordinates : Ranges.getAllCoordinates()) {
+                    graphics.drawImage((Image) Box.BOMB.image,
                             coordinates.x * IMAGE_SIZE,
                             coordinates.y * IMAGE_SIZE,
                             this);
@@ -45,9 +44,9 @@ public class JavaSweeper extends JFrame {
     private void initFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Minesweeper");
-        setVisible(true);
         setResizable(false);
         pack();
+        setVisible(true);
         setLocationRelativeTo(null);
     }
 
