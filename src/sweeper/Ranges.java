@@ -16,10 +16,6 @@ public class Ranges {
         }
     }
 
-    public static void setSize(int cols, int rows) {
-        setSize(new Coordinates(cols, rows));
-    }
-
     public static Coordinates getSize() {
         return size;
     }
