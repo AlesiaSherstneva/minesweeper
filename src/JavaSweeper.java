@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import sweeper.Box;
+import sweeper.Coordinates;
 
 public class JavaSweeper extends JFrame {
     private final int COLS = 15;
@@ -25,8 +26,11 @@ public class JavaSweeper extends JFrame {
             protected void paintComponent(Graphics graphics) {
                 super.paintComponent(graphics);
                 for (Box box : Box.values()) {
+                    Coordinates coordinates = new Coordinates(box.ordinal(), 0);
                     graphics.drawImage((Image) box.image,
-                            box.ordinal() * IMAGE_SIZE, 0, this);
+                            coordinates.x * IMAGE_SIZE,
+                            coordinates.y * IMAGE_SIZE,
+                            this);
                 }
             }
         };
