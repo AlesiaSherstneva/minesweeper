@@ -19,7 +19,7 @@ class Bomb {
         return bombMap.get(coordinates);
     }
 
-    void placeBomb() {
+    private void placeBomb() {
         bombMap.set(Ranges.getRandomCoordinates(), Box.BOMB);
     }
 }

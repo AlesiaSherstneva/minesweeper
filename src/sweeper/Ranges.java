@@ -26,7 +26,7 @@ public class Ranges {
         return allCoordinates;
     }
 
-    public static boolean inRange (Coordinates coordinates) {
+    static boolean inRange (Coordinates coordinates) {
         return coordinates.x >= 0 && coordinates.x < size.x &&
                 coordinates.y >= 0 && coordinates.y < size.y;
     }
