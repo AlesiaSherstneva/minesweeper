@@ -34,4 +34,20 @@ public class Ranges {
     static Coordinates getRandomCoordinates() {
         return new Coordinates(random.nextInt(size.x), random.nextInt(size.y));
     }
+
+    static ArrayList<Coordinates> getCoordinatesAround(Coordinates coordinates) {
+        Coordinates around;
+        ArrayList<Coordinates> listAround = new ArrayList<>();
+        for (int x = coordinates.x - 1 ; x <= coordinates.x + 1; x++) {
+            for (int y = coordinates.y - 1 ; y <= coordinates.y + 1; y++) {
+                around = new Coordinates (x, y);
+                if (inRange(around)) {
+                    if (!around.equals(coordinates)) {
+                        listAround.add(around);
+                    }
+                }
+            }
+        }
+        return listAround;
+    }
 }

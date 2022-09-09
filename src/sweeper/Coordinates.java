@@ -19,9 +19,4 @@ public class Coordinates {
         Coordinates coordinates = (Coordinates) object;
         return this.x == coordinates.x && this.y == coordinates.y;
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y);
-    }
 }

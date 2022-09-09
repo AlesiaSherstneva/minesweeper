@@ -20,6 +20,10 @@ class Bomb {
     }
 
     private void placeBomb() {
-        bombMap.set(Ranges.getRandomCoordinates(), Box.BOMB);
+        Coordinates coordinates = Ranges.getRandomCoordinates();
+        bombMap.set(coordinates, Box.BOMB);
+        for (Coordinates around: Ranges.getCoordinatesAround(coordinates)) {
+            bombMap.set(around, Box.NUM1);
+        }
     }
 }
