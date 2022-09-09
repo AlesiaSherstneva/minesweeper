@@ -26,7 +26,7 @@ public class Ranges {
         return allCoordinates;
     }
 
-    static boolean inRange (Coordinates coordinates) {
+    static boolean inRange(Coordinates coordinates) {
         return coordinates.x >= 0 && coordinates.x < size.x &&
                 coordinates.y >= 0 && coordinates.y < size.y;
     }
@@ -38,9 +38,9 @@ public class Ranges {
     static ArrayList<Coordinates> getCoordinatesAround(Coordinates coordinates) {
         Coordinates around;
         ArrayList<Coordinates> listAround = new ArrayList<>();
-        for (int x = coordinates.x - 1 ; x <= coordinates.x + 1; x++) {
-            for (int y = coordinates.y - 1 ; y <= coordinates.y + 1; y++) {
-                around = new Coordinates (x, y);
+        for (int x = coordinates.x - 1; x <= coordinates.x + 1; x++) {
+            for (int y = coordinates.y - 1; y <= coordinates.y + 1; y++) {
+                around = new Coordinates(x, y);
                 if (inRange(around)) {
                     if (!around.equals(coordinates)) {
                         listAround.add(around);

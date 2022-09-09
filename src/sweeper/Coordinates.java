@@ -13,7 +13,7 @@ public class Coordinates {
 
     @Override
     public boolean equals(Object object) {
-        if(!(object instanceof Coordinates)){
+        if (!(object instanceof Coordinates)) {
             return super.equals(object);
         }
         Coordinates coordinates = (Coordinates) object;
