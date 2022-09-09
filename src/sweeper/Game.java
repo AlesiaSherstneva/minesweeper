@@ -9,9 +9,10 @@ public class Game {
 
     public void start() {
         bombMap = new Matrix(Box.ZERO);
+        bombMap.set(new Coordinates(0, 0), Box.BOMB);
     }
 
     public Box getBox(Coordinates coordinates) {
-        return bombMap.matrix[coordinates.x][coordinates.y];
+        return bombMap.get(coordinates);
     }
 }
