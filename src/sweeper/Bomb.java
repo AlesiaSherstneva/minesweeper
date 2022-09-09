@@ -10,14 +10,16 @@ class Bomb {
 
     void start() {
         bombMap = new Matrix(Box.ZERO);
-        bombMap.set(new Coordinates(0, 0), Box.BOMB);
-        bombMap.set(new Coordinates(0, 0), Box.BOMB);
-        bombMap.set(new Coordinates(0, 1), Box.NUM1);
-        bombMap.set(new Coordinates(1, 0), Box.NUM1);
-        bombMap.set(new Coordinates(1, 1), Box.NUM1);
+        for (int i = 0; i < totalBombs; i++) {
+            placeBomb();
+        }
     }
 
     Box get(Coordinates coordinates) {
         return bombMap.get(coordinates);
+    }
+
+    void placeBomb() {
+        bombMap.set(Ranges.getRandomCoordinates(), Box.BOMB);
     }
 }
