@@ -1,18 +1,18 @@
 package sweeper;
 
 public class Game {
-    Matrix bombMap;
+    Bomb bomb;
 
-    public Game(int cols, int rows) {
+    public Game(int cols, int rows, int bombs) {
         Ranges.setSize(new Coordinates(cols, rows));
+        bomb = new Bomb(bombs);
     }
 
     public void start() {
-        bombMap = new Matrix(Box.ZERO);
-        bombMap.set(new Coordinates(0, 0), Box.BOMB);
+        bomb.start();
     }
 
     public Box getBox(Coordinates coordinates) {
-        return bombMap.get(coordinates);
+        return bomb.get(coordinates);
     }
 }
