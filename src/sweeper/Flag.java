@@ -10,4 +10,12 @@ class Flag {
     Box get(Coordinates coordinates) {
         return flagMap.get(coordinates);
     }
+
+    void setOpenedToBox(Coordinates coordinates) {
+        flagMap.set(coordinates, Box.OPENED);
+    }
+
+    void setFlaggedToBox(Coordinates coordinates) {
+        flagMap.set(coordinates, Box.FLAGGED);
+    }
 }
