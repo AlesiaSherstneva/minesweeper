@@ -22,8 +22,14 @@ class Bomb {
     private void placeBomb() {
         Coordinates coordinates = Ranges.getRandomCoordinates();
         bombMap.set(coordinates, Box.BOMB);
+        incNumbersAroundBomb(coordinates);
+    }
+
+    private void incNumbersAroundBomb(Coordinates coordinates) {
         for (Coordinates around : Ranges.getCoordinatesAround(coordinates)) {
-            bombMap.set(around, Box.NUM1);
+            if(Box.BOMB != bombMap.get(around)) {
+                bombMap.set(around, bombMap.get(around).nextNumberBox());
+            }
         }
     }
 }
