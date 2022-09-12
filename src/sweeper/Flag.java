@@ -18,4 +18,20 @@ class Flag {
     void setFlaggedToBox(Coordinates coordinates) {
         flagMap.set(coordinates, Box.FLAGGED);
     }
+
+    void setClosedToBox(Coordinates coordinates) {
+        flagMap.set(coordinates, Box.CLOSED);
+    }
+
+    void toggleFlaggedToBox(Coordinates coordinates) {
+        switch (flagMap.get(coordinates)) {
+            case FLAGGED:
+                setClosedToBox(coordinates);
+                break;
+            case CLOSED:
+                setFlaggedToBox(coordinates);
+                break;
+        }
+
+    }
 }
