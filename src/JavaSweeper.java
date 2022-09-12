@@ -8,8 +8,6 @@ import sweeper.Coordinates;
 import sweeper.Game;
 import sweeper.Ranges;
 
-import static java.awt.event.MouseEvent.BUTTON1;
-
 public class JavaSweeper extends JFrame {
     private Game game;
 
@@ -18,6 +16,7 @@ public class JavaSweeper extends JFrame {
     private final int BOMBS = 10;
     private final int IMAGE_SIZE = 50;
     private JPanel panel;
+    private JLabel label;
 
     public static void main(String[] args) {
         new JavaSweeper();
@@ -28,6 +27,7 @@ public class JavaSweeper extends JFrame {
         game.start();
         setImages();
         initPanel();
+        initLabel();
         initFrame();
     }
 
@@ -70,6 +70,12 @@ public class JavaSweeper extends JFrame {
                 Ranges.getSize().x * IMAGE_SIZE,
                 Ranges.getSize().y * IMAGE_SIZE));
         add(panel);
+    }
+
+    private void initLabel() {
+        label = new JLabel("Welcome!");
+        label.setFont(new Font("Tahoma", Font.BOLD, 20));
+        add(label, BorderLayout.SOUTH);
     }
 
     private void initFrame() {
