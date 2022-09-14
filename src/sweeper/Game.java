@@ -29,10 +29,23 @@ public class Game {
     }
 
     public void pressLeftButton(Coordinates coordinates) {
-        flag.setOpenedToBox(coordinates);
+        openBox(coordinates);
     }
 
     public void pressRightButton(Coordinates coordinates) {
         flag.toggleFlaggedToBox(coordinates);
+    }
+
+    private void openBox(Coordinates coordinates) {
+        switch (flag.get(coordinates)) {
+            case OPENED: break;
+            case FLAGGED: break;
+            case CLOSED:
+                switch (bomb.get(coordinates)) {
+                    case ZERO: break;
+                    case BOMB: break;
+                    default: flag.setOpenedToBox(coordinates);
+                }
+        }
     }
 }
