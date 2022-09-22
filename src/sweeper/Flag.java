@@ -50,4 +50,12 @@ class Flag {
         }
 
     }
+
+    public void setFlaggedToLastClosedBoxes() {
+        for(Coordinates coordinates: Ranges.getAllCoordinates()) {
+            if(Box.CLOSED == flagMap.get(coordinates)) {
+                setFlaggedToBox(coordinates);
+            }
+        }
+    }
 }

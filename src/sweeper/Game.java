@@ -24,6 +24,15 @@ public class Game {
         return flag.get(coordinates);
     }
 
+    public void pressLeftButton(Coordinates coordinates) {
+        openBox(coordinates);
+        checkWinner();
+    }
+
+    public void pressRightButton(Coordinates coordinates) {
+        flag.toggleFlaggedToBox(coordinates);
+    }
+
     public GameState getState() {
         return state;
     }
@@ -36,12 +45,13 @@ public class Game {
         return flag.getTotalFlagged();
     }
 
-    public void pressLeftButton(Coordinates coordinates) {
-        openBox(coordinates);
-    }
-
-    public void pressRightButton(Coordinates coordinates) {
-        flag.toggleFlaggedToBox(coordinates);
+    private void checkWinner() {
+        if (GameState.PLAY == state) {
+            if(flag.getTotalClosed() == getTotalFlagged()) {
+                state = GameState.WON;
+                flag.setFlaggedToLastClosedBoxes();
+            }
+        }
     }
 
     private void openBox(Coordinates coordinates) {
