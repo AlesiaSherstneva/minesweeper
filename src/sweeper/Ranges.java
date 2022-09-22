@@ -10,7 +10,7 @@ public class Ranges {
 
     static void setSize(Coordinates size) {
         Ranges.size = size;
-        allCoordinates = new ArrayList<Coordinates>();
+        allCoordinates = new ArrayList<>();
         for (int x = 0; x < size.x; x++) {
             for (int y = 0; y < size.y; y++) {
                 allCoordinates.add(new Coordinates(x, y));
