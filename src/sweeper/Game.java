@@ -18,7 +18,7 @@ public class Game {
     }
 
     public Box getBox(Coordinates coordinates) {
-        if(Box.OPENED == flag.get(coordinates)) {
+        if (Box.OPENED == flag.get(coordinates)) {
             return bomb.get(coordinates);
         }
         return flag.get(coordinates);
@@ -26,6 +26,14 @@ public class Game {
 
     public GameState getState() {
         return state;
+    }
+
+    public int getTotalBombs() {
+        return bomb.getTotalBombs();
+    }
+
+    public int getTotalFlagged() {
+        return flag.getTotalFlagged();
     }
 
     public void pressLeftButton(Coordinates coordinates) {
@@ -38,20 +46,26 @@ public class Game {
 
     private void openBox(Coordinates coordinates) {
         switch (flag.get(coordinates)) {
-            case OPENED: break;
-            case FLAGGED: break;
+            case OPENED:
+                break;
+            case FLAGGED:
+                break;
             case CLOSED:
                 switch (bomb.get(coordinates)) {
-                    case ZERO: openBoxesAroundZero(coordinates); break;
-                    case BOMB: break;
-                    default: flag.setOpenedToBox(coordinates);
+                    case ZERO:
+                        openBoxesAroundZero(coordinates);
+                        break;
+                    case BOMB:
+                        break;
+                    default:
+                        flag.setOpenedToBox(coordinates);
                 }
         }
     }
 
     private void openBoxesAroundZero(Coordinates coordinates) {
         flag.setOpenedToBox(coordinates);
-        for(Coordinates around: Ranges.getCoordinatesAround(coordinates)) {
+        for (Coordinates around : Ranges.getCoordinatesAround(coordinates)) {
             openBox(around);
         }
     }

@@ -109,7 +109,12 @@ public class JavaSweeper extends JFrame {
                 return "Congratulations! All bombs have been marked!";
             case PLAY:
             default:
-                return "Welcome!";
+                if(game.getTotalFlagged() == 0) {
+                    return "Welcome!";
+                } else {
+                    return "Think twice! Flagged " + game.getTotalFlagged() + " of "
+                            + game.getTotalBombs() + " bombs.";
+                }
         }
     }
 }
