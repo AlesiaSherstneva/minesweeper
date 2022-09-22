@@ -50,4 +50,8 @@ public class Ranges {
         }
         return listAround;
     }
+
+    static int getSquare() {
+        return size.x * size.y;
+    }
 }

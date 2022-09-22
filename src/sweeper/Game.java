@@ -50,7 +50,6 @@ public class Game {
     }
 
     private void openBoxesAroundZero(Coordinates coordinates) {
-        System.out.println(coordinates.x + " " + coordinates.y);
         flag.setOpenedToBox(coordinates);
         for(Coordinates around: Ranges.getCoordinatesAround(coordinates)) {
             openBox(around);
