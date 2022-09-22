@@ -51,11 +51,15 @@ class Flag {
 
     }
 
-    public void setFlaggedToLastClosedBoxes() {
+    void setFlaggedToLastClosedBoxes() {
         for(Coordinates coordinates: Ranges.getAllCoordinates()) {
             if(Box.CLOSED == flagMap.get(coordinates)) {
                 setFlaggedToBox(coordinates);
             }
         }
+    }
+
+    void setBombedToBox(Coordinates coordinates) {
+        flagMap.set(coordinates, Box.BOMBED);
     }
 }
