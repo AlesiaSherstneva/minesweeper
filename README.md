@@ -26,3 +26,10 @@ BOMBED).</li>
 проигрыше. В методе openBox() этого класса заложена вся ключевая логика игры: описаны действия, происходящие в результате
 каждого открытия ячейки.</li>
 </ul>
+<p>Чтобы создать из проекта исполняемый jar-архив, нужно в меню File, во вкладке Project Structure, во вкладке
+Artifacts нажать + -> Jar -> From modules with dependencies..., в выпавшем окне указать main класс JavaSweeper -> OK.
+Затем в меню Build нажать Build Artifacts... -> Build.</p>
+
+<p>Игровой процесс:</p>
+
+![img_1_victory.gif](img_1_victory.gif)![img_2_loss.gif](img_2_loss.gif)
