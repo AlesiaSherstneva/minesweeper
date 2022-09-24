@@ -18,7 +18,7 @@ public class Game {
     }
 
     public Box getBox(Coordinates coordinates) {
-        if (Box.OPENED == flag.get(coordinates)) {
+        if (flag.get(coordinates) == Box.OPENED) {
             return bomb.get(coordinates);
         }
         return flag.get(coordinates);
@@ -28,7 +28,6 @@ public class Game {
         if (isGameOver()) return;
         openBox(coordinates);
         checkWinner();
-
     }
 
     public void pressRightButton(Coordinates coordinates) {
@@ -52,7 +51,7 @@ public class Game {
     }
 
     private boolean isGameOver() {
-        if (GameState.PLAY != state) {
+        if (state != GameState.PLAY) {
             start();
             return true;
         }
@@ -60,7 +59,7 @@ public class Game {
     }
 
     private void checkWinner() {
-        if (GameState.PLAY == state) {
+        if (state == GameState.PLAY) {
             if (flag.getTotalClosed() == bomb.getTotalBombs()) {
                 state = GameState.WON;
                 flag.setFlaggedToLastClosedBoxes();
@@ -91,7 +90,7 @@ public class Game {
     }
 
     private void setOpenedToClosedBoxesAroundNumber(Coordinates coordinates) {
-        if (Box.BOMB != bomb.get(coordinates)) {
+        if (bomb.get(coordinates) != Box.BOMB) {
             if (bomb.get(coordinates).getNumber() == flag.getCountOfFlaggedBoxesAround(coordinates)) {
                 for (Coordinates around : Ranges.getCoordinatesAround(coordinates)) {
                     if (flag.get(around) == Box.CLOSED && bomb.get(around) != Box.BOMB) {

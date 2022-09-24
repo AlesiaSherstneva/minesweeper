@@ -32,4 +32,4 @@ Artifacts нажать + -> Jar -> From modules with dependencies..., в вып�
 
 <p>Игровой процесс:</p>
 
-![img_1_victory.gif](img_1_victory.gif)![img_2_loss.gif](img_2_loss.gif)
+![img_1_victory.gif](img_1_victory.gif) ![img_2_loss.gif](img_2_loss.gif)
