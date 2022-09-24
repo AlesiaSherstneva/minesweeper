@@ -62,4 +62,16 @@ class Flag {
     void setBombedToBox(Coordinates coordinates) {
         flagMap.set(coordinates, Box.BOMBED);
     }
+
+    void setOpenedToClosedBox(Coordinates coordinates) {
+        if(Box.CLOSED == flagMap.get(coordinates)) {
+            flagMap.set(coordinates, Box.OPENED);
+        }
+    }
+
+    public void SetNobombToFlaggedBombs(Coordinates coordinates) {
+        if(Box.FLAGGED == flagMap.get(coordinates)) {
+            flagMap.set(coordinates, Box.NOBOMB);
+        }
+    }
 }
