@@ -74,4 +74,14 @@ class Flag {
             flagMap.set(coordinates, Box.NOBOMB);
         }
     }
+
+    int getCountOfFlaggedBoxesAround(Coordinates coordinates) {
+        int count = 0;
+        for(Coordinates around: Ranges.getCoordinatesAround(coordinates)) {
+            if (flagMap.get(around) == Box.FLAGGED) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

@@ -106,7 +106,7 @@ public class JavaSweeper extends JFrame {
             case BOMBED:
                 return "BA-DA-BOOM! You lost!";
             case WON:
-                return "Congratulations! You won!";
+                return "CONGRATULATIONS! You won!";
             case PLAY:
             default:
                 if(game.getTotalFlagged() == 0) {
