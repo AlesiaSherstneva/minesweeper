@@ -1,8 +1,8 @@
 package sweeper;
 
 public class Game {
-    private Bomb bomb;
-    private Flag flag;
+    private final Bomb bomb;
+    private final Flag flag;
     private GameState state;
 
     public Game(int cols, int rows, int bombs) {
@@ -91,10 +91,10 @@ public class Game {
     }
 
     private void setOpenedToClosedBoxesAroundNumber(Coordinates coordinates) {
-        if(Box.BOMB != bomb.get(coordinates)) {
-            if(bomb.get(coordinates).getNumber() == flag.getCountOfFlaggedBoxesAround(coordinates)) {
-                for(Coordinates around: Ranges.getCoordinatesAround(coordinates)) {
-                    if(flag.get(around) == Box.CLOSED) {
+        if (Box.BOMB != bomb.get(coordinates)) {
+            if (bomb.get(coordinates).getNumber() == flag.getCountOfFlaggedBoxesAround(coordinates)) {
+                for (Coordinates around : Ranges.getCoordinatesAround(coordinates)) {
+                    if (flag.get(around) == Box.CLOSED) {
                         openBox(around);
                     }
                 }
@@ -104,8 +104,8 @@ public class Game {
 
     private void openBombs(Coordinates bombedCoordinates) {
         flag.setBombedToBox(bombedCoordinates);
-        for(Coordinates coordinates: Ranges.getAllCoordinates()) {
-            if(bomb.get(coordinates) == Box.BOMB) {
+        for (Coordinates coordinates : Ranges.getAllCoordinates()) {
+            if (bomb.get(coordinates) == Box.BOMB) {
                 flag.setOpenedToClosedBox(coordinates);
             } else {
                 flag.SetNobombToFlaggedBombs(coordinates);
