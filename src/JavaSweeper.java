@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Objects;
 
 import sweeper.Box;
 import sweeper.Coordinates;
@@ -9,12 +10,13 @@ import sweeper.Game;
 import sweeper.Ranges;
 
 public class JavaSweeper extends JFrame {
-    private Game game;
+    private final Game game;
 
     private final int COLS = 9;
     private final int ROWS = 9;
     private final int BOMBS = 10;
     private final int IMAGE_SIZE = 50;
+
     private JPanel panel;
     private JLabel label;
 
@@ -97,7 +99,7 @@ public class JavaSweeper extends JFrame {
 
     private Image getImage(String name) {
         String filename = "image/" + name + ".png";
-        ImageIcon icon = new ImageIcon(getClass().getResource(filename));
+        ImageIcon icon = new ImageIcon(Objects.requireNonNull(getClass().getResource(filename)));
         return icon.getImage();
     }
 
@@ -109,7 +111,7 @@ public class JavaSweeper extends JFrame {
                 return "CONGRATULATIONS! You won!";
             case PLAY:
             default:
-                if(game.getTotalFlagged() == 0) {
+                if (game.getTotalFlagged() == 0) {
                     return "Welcome!";
                 } else {
                     return "Think twice! Flagged " + game.getTotalFlagged() + " of "
