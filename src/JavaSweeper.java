@@ -104,9 +104,9 @@ public class JavaSweeper extends JFrame {
     private String getMessage() {
         switch (game.getState()) {
             case BOMBED:
-                return "Ba-Da-Boom! You lost!";
+                return "BA-DA-BOOM! You lost!";
             case WON:
-                return "Congratulations! All bombs have been marked!";
+                return "Congratulations! You won!";
             case PLAY:
             default:
                 if(game.getTotalFlagged() == 0) {
