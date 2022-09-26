@@ -52,45 +52,36 @@ public class JavaSweeper extends JFrame {
         JMenuItem seniorLevel = new JMenuItem("Senior");
         seniorLevel.setFont(disabledFont);
 
-        ActionListener juniorListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                juniorLevel.setFont(enabledFont);
-                middleLevel.setFont(disabledFont);
-                seniorLevel.setFont(disabledFont);
-                rows = 9;
-                cols = 9;
-                bombs = 10;
-                changeLevel();
-            }
+        ActionListener juniorListener = e -> {
+            juniorLevel.setFont(enabledFont);
+            middleLevel.setFont(disabledFont);
+            seniorLevel.setFont(disabledFont);
+            rows = 9;
+            cols = 9;
+            bombs = 10;
+            changeLevel();
         };
         juniorLevel.addActionListener(juniorListener);
 
-        ActionListener middleListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                juniorLevel.setFont(disabledFont);
-                middleLevel.setFont(enabledFont);
-                seniorLevel.setFont(disabledFont);
-                rows = 16;
-                cols = 16;
-                bombs = 40;
-                changeLevel();
-            }
+        ActionListener middleListener = e -> {
+            juniorLevel.setFont(disabledFont);
+            middleLevel.setFont(enabledFont);
+            seniorLevel.setFont(disabledFont);
+            rows = 16;
+            cols = 16;
+            bombs = 40;
+            changeLevel();
         };
         middleLevel.addActionListener(middleListener);
 
-        ActionListener seniorListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                juniorLevel.setFont(disabledFont);
-                middleLevel.setFont(disabledFont);
-                seniorLevel.setFont(enabledFont);
-                rows = 16;
-                cols = 30;
-                bombs = 99;
-                changeLevel();
-            }
+        ActionListener seniorListener = e -> {
+            juniorLevel.setFont(disabledFont);
+            middleLevel.setFont(disabledFont);
+            seniorLevel.setFont(enabledFont);
+            rows = 16;
+            cols = 30;
+            bombs = 99;
+            changeLevel();
         };
         seniorLevel.addActionListener(seniorListener);
 
