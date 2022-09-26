@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -88,6 +87,23 @@ public class JavaSweeper extends JFrame {
         level.add(seniorLevel);
 
         bar.add(level);
+
+        JMenu about = new JMenu("About");
+        about.setFont(font);
+
+        JMenuItem author = new JMenuItem("About the project");
+        author.setFont(font);
+        ActionListener authorListener = e -> {
+            JLabel label = new JLabel("Project by Alesia Sherstneva");
+            label.setFont(font);
+            JOptionPane.showMessageDialog(null, label, "About the project",
+                    JOptionPane.INFORMATION_MESSAGE);
+        };
+        author.addActionListener(authorListener);
+
+        about.add(author);
+
+        bar.add(about);
     }
 
     private void initPanel() {
