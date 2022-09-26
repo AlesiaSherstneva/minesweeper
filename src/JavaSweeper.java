@@ -1,36 +1,106 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
+import sweeper.*;
 import sweeper.Box;
-import sweeper.Coordinates;
-import sweeper.Game;
-import sweeper.Ranges;
 
 public class JavaSweeper extends JFrame {
-    private final Game game;
+    private Game game;
 
-    private final int COLS = 9;
-    private final int ROWS = 9;
-    private final int BOMBS = 10;
+    private int cols = 9;
+    private int rows = 9;
+    private int bombs = 10;
     private final int IMAGE_SIZE = 50;
 
     private JPanel panel;
     private JLabel label;
+    private JMenuBar bar;
 
     public static void main(String[] args) {
         new JavaSweeper();
     }
 
     private JavaSweeper() {
-        game = new Game(COLS, ROWS, BOMBS);
+        game = new Game(cols, rows, bombs);
         game.start();
         setImages();
         initPanel();
         initLabel();
+        initBar();
         initFrame();
+    }
+
+    private void initBar() {
+        bar = new JMenuBar();
+
+        Font disabledFont = new Font("Tahoma", Font.PLAIN, 18);
+        Font enabledFont = new Font("Tahoma", Font.BOLD, 18);
+        JMenu menu = new JMenu("Choose level");
+        menu.setFont(disabledFont);
+
+        JMenuItem juniorLevel = new JMenuItem("Junior");
+        juniorLevel.setFont(enabledFont);
+
+        JMenuItem middleLevel = new JMenuItem("Middle");
+        middleLevel.setFont(disabledFont);
+
+        JMenuItem seniorLevel = new JMenuItem("Senior");
+        seniorLevel.setFont(disabledFont);
+
+        ActionListener juniorListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                juniorLevel.setFont(enabledFont);
+                middleLevel.setFont(disabledFont);
+                seniorLevel.setFont(disabledFont);
+                rows = 9;
+                cols = 9;
+                bombs = 10;
+                changeLevel();
+            }
+        };
+        juniorLevel.addActionListener(juniorListener);
+
+        ActionListener middleListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                juniorLevel.setFont(disabledFont);
+                middleLevel.setFont(enabledFont);
+                seniorLevel.setFont(disabledFont);
+                rows = 16;
+                cols = 16;
+                bombs = 40;
+                changeLevel();
+            }
+        };
+        middleLevel.addActionListener(middleListener);
+
+        ActionListener seniorListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                juniorLevel.setFont(disabledFont);
+                middleLevel.setFont(disabledFont);
+                seniorLevel.setFont(enabledFont);
+                rows = 16;
+                cols = 30;
+                bombs = 99;
+                changeLevel();
+            }
+        };
+        seniorLevel.addActionListener(seniorListener);
+
+        menu.add(juniorLevel);
+        menu.addSeparator();
+        menu.add(middleLevel);
+        menu.addSeparator();
+        menu.add(seniorLevel);
+
+        bar.add(menu);
     }
 
     private void initPanel() {
@@ -83,7 +153,9 @@ public class JavaSweeper extends JFrame {
 
     private void initFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultLookAndFeelDecorated(true);
         setTitle("Minesweeper");
+        setJMenuBar(bar);
         setResizable(false);
         pack();
         setVisible(true);
@@ -118,5 +190,13 @@ public class JavaSweeper extends JFrame {
                             + game.getTotalBombs() + " bombs.";
                 }
         }
+    }
+
+    private void changeLevel() {
+        game = new Game(cols, rows, bombs);
+        game.start();
+        initPanel();
+        pack();
+        setLocationRelativeTo(null);
     }
 }
