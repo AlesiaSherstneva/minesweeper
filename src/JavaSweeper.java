@@ -38,24 +38,26 @@ public class JavaSweeper extends JFrame {
     private void initBar() {
         bar = new JMenuBar();
 
-        Font disabledFont = new Font("Tahoma", Font.PLAIN, 18);
-        Font enabledFont = new Font("Tahoma", Font.BOLD, 18);
-        JMenu menu = new JMenu("Choose level");
-        menu.setFont(disabledFont);
+        Font font = new Font("Tahoma", Font.PLAIN, 18);
+        JMenu level = new JMenu("Choose level");
+        level.setFont(font);
 
-        JMenuItem juniorLevel = new JMenuItem("Junior");
-        juniorLevel.setFont(enabledFont);
+        JRadioButtonMenuItem juniorLevel = new JRadioButtonMenuItem("Junior");
+        juniorLevel.setSelected(true);
+        juniorLevel.setFont(font);
 
-        JMenuItem middleLevel = new JMenuItem("Middle");
-        middleLevel.setFont(disabledFont);
+        JRadioButtonMenuItem middleLevel = new JRadioButtonMenuItem("Middle");
+        middleLevel.setFont(font);
 
-        JMenuItem seniorLevel = new JMenuItem("Senior");
-        seniorLevel.setFont(disabledFont);
+        JRadioButtonMenuItem seniorLevel = new JRadioButtonMenuItem("Senior");
+        seniorLevel.setFont(font);
+
+        ButtonGroup levels = new ButtonGroup();
+        levels.add(juniorLevel);
+        levels.add(middleLevel);
+        levels.add(seniorLevel);
 
         ActionListener juniorListener = e -> {
-            juniorLevel.setFont(enabledFont);
-            middleLevel.setFont(disabledFont);
-            seniorLevel.setFont(disabledFont);
             rows = 9;
             cols = 9;
             bombs = 10;
@@ -64,9 +66,6 @@ public class JavaSweeper extends JFrame {
         juniorLevel.addActionListener(juniorListener);
 
         ActionListener middleListener = e -> {
-            juniorLevel.setFont(disabledFont);
-            middleLevel.setFont(enabledFont);
-            seniorLevel.setFont(disabledFont);
             rows = 16;
             cols = 16;
             bombs = 40;
@@ -75,9 +74,6 @@ public class JavaSweeper extends JFrame {
         middleLevel.addActionListener(middleListener);
 
         ActionListener seniorListener = e -> {
-            juniorLevel.setFont(disabledFont);
-            middleLevel.setFont(disabledFont);
-            seniorLevel.setFont(enabledFont);
             rows = 16;
             cols = 30;
             bombs = 99;
@@ -85,13 +81,13 @@ public class JavaSweeper extends JFrame {
         };
         seniorLevel.addActionListener(seniorListener);
 
-        menu.add(juniorLevel);
-        menu.addSeparator();
-        menu.add(middleLevel);
-        menu.addSeparator();
-        menu.add(seniorLevel);
+        level.add(juniorLevel);
+        level.addSeparator();
+        level.add(middleLevel);
+        level.addSeparator();
+        level.add(seniorLevel);
 
-        bar.add(menu);
+        bar.add(level);
     }
 
     private void initPanel() {
