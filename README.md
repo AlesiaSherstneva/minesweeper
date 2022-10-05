@@ -28,9 +28,8 @@
 
 > **Note**  
 > Чтобы создать из проекта исполняемый jar-архив, нужно в меню `File`, во вкладке `Project Structure`, во вкладке
-`Artifacts` нажать `+` :arrow_forward: `Jar` :arrow_forward: `From modules with dependencies...`, в выпавшем окне 
-> указать main класс `JavaSweeper`:arrow_forward: `OK`. Затем в меню `Build` нажать `Build Artifacts...` :arrow_forward: 
-> `Build`.
+`Artifacts` нажать `+` -> `Jar` -> `From modules with dependencies...`, в выпавшем окне указать main класс `JavaSweeper`
+-> `OK`. Затем в меню `Build` нажать `Build Artifacts...` -> `Build`.
 
 Игровой процесс:
 
