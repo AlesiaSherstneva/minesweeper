@@ -1,6 +1,6 @@
 # minesweeper
 
-Я прошла курс [Игра Сапёр на Java](https://stepik.org/course/52329) на платформе Stepik.org.
+Я прошла курс ["Игра Сапёр на Java"](https://stepik.org/course/52329) на платформе Stepik.org.
 <br>Результатом стала классическая игра "Сапёр".
 
 Структура игры:
