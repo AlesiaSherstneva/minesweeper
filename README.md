@@ -1,7 +1,7 @@
 # minesweeper
 
 Я прошла курс ["Игра Сапёр на Java"](https://stepik.org/course/52329) на платформе Stepik.org.
-<br>Результатом стала классическая игра "Сапёр".
+<br>Результатом стала классическая игра "Сапёр":bomb:.
 
 Структура игры:
 - основной класс наследуется от `JFrame`, отсюда получаем рамку. Кроме `JFrame`, из библиотеки `java.awt` используются
@@ -28,8 +28,9 @@
 
 > **Note**  
 > Чтобы создать из проекта исполняемый jar-архив, нужно в меню `File`, во вкладке `Project Structure`, во вкладке
-`Artifacts` нажать `+` -> `Jar` -> `From modules with dependencies...`, в выпавшем окне указать main класс `JavaSweeper`
--> `OK`. Затем в меню `Build` нажать `Build Artifacts...` -> `Build`.
+`Artifacts` нажать `+` :arrow_forward: `Jar` :arrow_forward: `From modules with dependencies...`, в выпавшем окне 
+> указать main класс `JavaSweeper`:arrow_forward: `OK`. Затем в меню `Build` нажать `Build Artifacts...` :arrow_forward: 
+> `Build`.
 
 Игровой процесс:
 
@@ -46,4 +47,4 @@
 > Определенно, тщеславие – мой самый любимый из грехов. Он так фундаментален,
 самолюбие – это естественный наркотик.
 
-:movie_camera: "Адвокат дьявола"
+:clapper: "Адвокат дьявола"
